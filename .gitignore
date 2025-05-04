@@ -40,3 +40,17 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+.angular/
+.pnpm-debug.log
+.cache/
+# Environment files
+.env
+.env.*.local
+
+# Build folders
+/build
+
+# Misc
+.cache/
+.pnpm-debug.log
+
