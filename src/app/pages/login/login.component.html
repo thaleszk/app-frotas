@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <div class="text-danger" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+          E-mail inválido.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" formControlName="senha">
+        <div class="text-danger" *ngIf="loginForm.get('senha')?.touched && loginForm.get('senha')?.invalid">
+          A senha é obrigatória.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,25 @@
+<div>
+  <h2>Iniciar Viagem</h2>
+
+  <form [formGroup]="form" (ngSubmit)="iniciarViagem()">
+    <div>
+      <label for="quilometragem">Quilometragem (km):</label>
+      <input id="quilometragem" formControlName="quilometragem" type="number" min="0" />
+    </div>
+
+    <div>
+      <label for="observacao">Observações (opcional):</label>
+      <textarea id="observacao" formControlName="observacao"></textarea>
+    </div>
+
+    <button type="submit">Iniciar Viagem</button>
+  </form>
+
+  <div *ngIf="sucesso" style="color: green; margin-top: 10px;">
+    Viagem iniciada com sucesso!
+  </div>
+
+  <div *ngIf="erro" style="color: red; margin-top: 10px;">
+    {{ erro }}
+  </div>
+</div>
