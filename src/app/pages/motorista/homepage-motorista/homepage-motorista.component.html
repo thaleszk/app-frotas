@@ -1,0 +1,39 @@
+<div class="container">
+
+  <h1>Agendamentos</h1>
+
+  <button (click)="abrirModal()" class="abrir-modal-button">Mostrar Agendamentos</button>
+
+  <div *ngIf="modalAberto" class="modal-overlay">
+    <div class="modal-content">
+     <button (click)="fecharModal()" class="fechar-modal-button">&times;</button>
+
+      <div *ngIf="agendamentos.length === 0">
+       <p>Nenhum agendamento encontrado.</p>
+      </div>
+
+      <div *ngFor="let agendamento of agendamentos" class="agendamento-card">
+        <p><strong>Data:</strong> {{ agendamento.dataInicio | date: 'short' }}</p>
+        <p><strong>Veículo:</strong> {{ agendamento.veiculo }}</p>
+        <p><strong>Destino:</strong> {{ agendamento.destino }}</p>
+        <p><strong>Status:</strong> {{ agendamento.status }}</p>
+
+      <div class="acoes">
+        <button *ngIf="agendamento.status === 'AGENDADO'" (click)="iniciarViagem(agendamento)">
+          Iniciar Viagem
+        </button>
+
+        <button *ngIf="agendamento.status === 'EM_USO'" (click)="finalizarViagem(agendamento)">
+          Finalizar Viagem
+        </button>
+
+        <button *ngIf="agendamento.status !== 'AGENDADO' && agendamento.status !== 'EM_USO'"
+         (click)="verDetalhes(agendamento)">
+          Ver Detalhes
+        </button>
+      </div>
+
+      <hr />
+    </div>
+  </div>
+</div>

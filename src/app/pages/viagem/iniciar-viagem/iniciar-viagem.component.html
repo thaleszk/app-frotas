@@ -1,0 +1,18 @@
+<h2>Iniciar Viagem</h2>
+
+<form [formGroup]="form" (ngSubmit)="iniciar()">
+  <div>
+    <label>Quilometragem:</label>
+    <input type="number" formControlName="quilometragem" />
+    <div *ngIf="form.get('quilometragem')?.invalid && form.get('quilometragem')?.touched">
+      Quilometragem obrigatória e deve ser maior ou igual a zero.
+    </div>
+  </div>
+
+  <div>
+    <label>Observações:</label>
+    <textarea formControlName="observacoes"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid">Iniciar Viagem</button>
+</form>
